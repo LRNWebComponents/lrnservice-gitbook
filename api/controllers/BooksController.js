@@ -6,10 +6,8 @@
  */
 
 module.exports = {
-  // 'findOne': function(req,res) {
-
-  // },
-  'getCommits': function(req, res) {
+  // list all of the commits for a given book
+  getCommits: function(req, res) {
     var book = req.params.id;
     var shell = require('shelljs');
     var originalPath = shell.pwd();
