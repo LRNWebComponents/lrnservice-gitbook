@@ -1,3 +1,3 @@
-# demo
+# LRNService Gitbook
 
-a [Sails](http://sailsjs.org) application
+Node.js microservice that supports the [lrnapp-gitbook](https://github.com/LRNWebComponents/lrnservice-gitbook/) polymer app.
