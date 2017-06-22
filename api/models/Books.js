@@ -9,23 +9,28 @@ module.exports = {
   attributes: {
     title: {
       type: 'string',
-      unique: true
+      unique: true,
+      required: true
     },
     repo: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     branch: {
+      type: 'string',
+      required: true
+    },
+    mergeBranch: {
       type: 'string'
     }
   },
   afterCreate: function(values, cb) {
-    if (!values.repo || !values.title) { return; }
     var shell = require('shelljs');
     var originalPath = shell.pwd();
     try {
       var inBooks =  shell.cd('assets/books');
       if (inBooks) {
-        var repoCloned = shell.exec('git clone ' + values.repo + ' ' + values.title);
+        var repoCloned = shell.exec('git clone -b ' + values.branch + ' ' + values.repo + ' ' + values.title);
         if (repoCloned) {
           shell.cd(originalPath);
           cb();

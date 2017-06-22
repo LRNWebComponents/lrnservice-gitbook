@@ -35,6 +35,18 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  'GET /api/books/:id/commits': {
+    controller: 'BooksController',
+    action: 'getCommits'
+  },
+  'GET /api/books/:id/canmerge': {
+    controller: 'BooksController',
+    action: 'canMerge'
+  },
+  'GET /api/books/:id/sync': {
+    controller: 'BooksController',
+    action: 'sync'
+  }
 
   /***************************************************************************
   *                                                                          *
